@@ -21,7 +21,7 @@ data_temp={
 
 def new_ingester(url):
   if url == "":
-    return print("201-link not found")
+    return ("201-link not found")
 
   #will implement html to text using beautifulSoup
 
