@@ -1,3 +1,34 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@hhn17 
+BUEC500C1
+/
+continuous-integration-test-hhn17
+Private
+0
+00
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security
+Insights
+Settings
+continuous-integration-test-hhn17/.github/workflows/python-package.yml
+@hhn17
+hhn17 Update python-package.yml
+Latest commit 75b9963 20 days ago
+ History
+ 1 contributor
+42 lines (37 sloc)  1.34 KB
+  
 # This workflow will install Python dependencies, run tests and lint with a variety of Python versions
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
@@ -26,7 +57,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install flake8 pytest
+        python -m pip install flake8 pytest coverage
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with flake8
       run: |
@@ -36,4 +67,8 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest
+        coverage run -m pytest 
+    - name: Show coverage report
+      run: |
+        coverage report -m
+
