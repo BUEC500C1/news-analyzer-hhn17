@@ -35,7 +35,7 @@ def Create(filename, file_ID, author):
 
   for x in data:
     if x["File_name"]==new_data["File_name"] and x["FILE_ID"]==new_data["FILE_ID"] and x["Author"]==new_data["Author"]:
-      return print("101-File already exist")
+      return ("101-File already exist")
 
 
 
@@ -44,7 +44,7 @@ def Create(filename, file_ID, author):
   with open('event.json',"w") as f:
     data=json.dump(data,f)
   
-  return print("100-create successful")
+  return ("100-create successful")
 
 def Delete(filename, file_ID, author):
   with open('event.json') as f:
@@ -55,9 +55,9 @@ def Delete(filename, file_ID, author):
       data.remove(x)
       with open('event.json',"w") as f:
         data=json.dump(data,f)
-      return print("120-delete successful")
+      return ("120-delete successful")
 
-  return print("121-can't delete due to file not exist or permission not granted")
+  return ("121-can't delete due to file not exist or permission not granted")
 
 def Update(filename, file_ID, author):
   with open('event.json') as f:
@@ -69,9 +69,9 @@ def Update(filename, file_ID, author):
       x["Modified time"]="new time"
       with open('event.json',"w") as f:
         data=json.dump(data,f)
-      return print("110-update successful")
+      return ("110-update successful")
 
-    return print("111-can't update due to file not exist or permission not granted")
+    return ("111-can't update due to file not exist or permission not granted")
 
 
 
