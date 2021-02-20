@@ -2,7 +2,7 @@ import json
 from google.cloud import language
 
 def NLP_analysis(filename):
-  if filename==NULL:
+  if filename=="":
     return print("301-file does not exist")
 
   with open('event.json') as f:
