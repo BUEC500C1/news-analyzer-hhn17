@@ -3,7 +3,7 @@ from google.cloud import language
 
 def NLP_analysis(filename):
   if filename=="":
-    return print("301-file does not exist")
+    return ("301-file does not exist")
 
   with open('event.json') as f:
     data=json.load(f)
@@ -23,6 +23,6 @@ def NLP_analysis(filename):
 
       return print("300-NLP successful")
 
-  return print("301-file does not exist")
+  return ("301-file does not exist")
 
 NLP_analysis("")
