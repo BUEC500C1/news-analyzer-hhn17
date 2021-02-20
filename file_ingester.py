@@ -43,6 +43,8 @@ def Create(filename, file_ID, author):
 
   with open('event.json',"w") as f:
     data=json.dump(data,f)
+  
+  return print("100-create successful")
 
 def Delete(filename, file_ID, author):
   with open('event.json') as f:
