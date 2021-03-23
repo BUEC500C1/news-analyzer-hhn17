@@ -1,10 +1,34 @@
 # news-analyzer-hhn17
 news-analyzer-hhn17 created by GitHub Classroom
 
-Project 2 Phase 1:
-Stub modules for NLP analysis, file ingester and news feed ingester
-  1. NLP analysis accepts a string and return analysis on sentiment and entities scores
-  2. Files ingester contains 3 method, create, update and delete. Each accept and return a json object
-  3. News feed ingester is a stub api that use beautifulsoup to accept an url and return the text as well as source and author if possible
+Project 2 Final phase:
 
-Currently, there is no database so testing will use the event.json.
+Final product:
+The aplication is currently hosted on a AWS virtual machine, accessible through the link: http://3.135.222.23/.
+If there is any problem, please contact the git owner.
+
+The application consists of 5 modules in total: a file uploader, a text ingester, a NLP analysis, a frontend client and a query module. The database used is mongodb. 
+
+=File uploader:
+The file uploader receive a pdf or txt file, extract the text and upload them to the database. It will also assigned the current uploader ID as author of the uploaded file and fill in the current time as the uploaded time.
+It also allow users ti update and delete the file if file name and author ID are matched. Currently, delele operation is not supported for the full stack application and can only be done using terminal 
+
+=Text ingester:
+Accept pdf file and convert them to text using pdfminer. Similar to file uploader but do not allow update or delete operation. 
+Pass the text through google NLP for sentiment score
+
+-Google NLP:
+Pass the text through Google cloud NLP to extract the sentiment analysis and score. Currently, there is support for user interface to access this data
+
+-Query:
+Allow user to enter a string then search the database for that string. Return all file containing the string but user can only access file uploaded by them
+
+-Frontend module:
+The user interface. The user can register by entering a unique username. A random author ID will be generated for this author name and the author will have to remember it to login. Currently support the upload, update and search operation. 
+The web design is from an open source web package from Marker. 
+
+Issues:
+Currently, some features such as sentiment analysis and deletion are not supported on the UI and can only be access through command line. Github workflow test is also not supported. 
+
+
+
