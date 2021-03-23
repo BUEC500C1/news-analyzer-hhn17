@@ -2,7 +2,7 @@
 from google.cloud import language_v1
 
 
-# Instantiates a client
+
 
 def  get_sentiments(text):
     client = language_v1.LanguageServiceClient()
@@ -13,10 +13,7 @@ def  get_sentiments(text):
     return result, sentiment.score, sentiment.magnitude
 
 def process_score(sentiment):
-    """
-    threshold for negative and positive or mix sentiment
-    NOTE: we are not considering magnitude in sentiment score
-    """
+    
     
     if sentiment.score == 0:
         return "neutral"
