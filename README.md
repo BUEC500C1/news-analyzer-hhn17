@@ -9,11 +9,11 @@ If there is any problem, please contact the git owner.
 
 The application consists of 5 modules in total: a file uploader, a text ingester, a NLP analysis, a frontend client and a query module. The database used is mongodb. 
 
-=File uploader:
+-File uploader:
 The file uploader receive a pdf or txt file, extract the text and upload them to the database. It will also assigned the current uploader ID as author of the uploaded file and fill in the current time as the uploaded time.
 It also allow users ti update and delete the file if file name and author ID are matched. Currently, delele operation is not supported for the full stack application and can only be done using terminal 
 
-=Text ingester:
+-Text ingester:
 Accept pdf file and convert them to text using pdfminer. Similar to file uploader but do not allow update or delete operation. 
 Pass the text through google NLP for sentiment score
 
