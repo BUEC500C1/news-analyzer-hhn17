@@ -15,9 +15,7 @@ import config
 import json
 
 def get_sentiment(cont):
-    """
-    Fetch the sentiment score from api created for google nlp
-    """
+    
     data = dict()
     data['content'] = cont
     header_conf = {'Content-type': 'application/json', 'Accept': 'text/plain'}
@@ -25,9 +23,7 @@ def get_sentiment(cont):
     return response.json()
 
 def save_file(req):
-    """
-    request which contain file  name and data
-    """
+    
     logging.debug("Save file request is received......")
     file = req.files['file']
     id = uuid4()
@@ -42,9 +38,7 @@ def save_file(req):
     return file_path_name, file.filename
     
 def extract_text_from_pdf(filepath):
-    """
-    filepath will be given , pdf will be loaded and text can be extracted and file will be removed
-    """
+    
     output_string = StringIO()
     with open(filepath, 'rb') as in_file:
         parser = PDFParser(in_file)
@@ -56,7 +50,7 @@ def extract_text_from_pdf(filepath):
             interpreter.process_page(page)
     logging.debug("File is processed, Deleting temporay file")
     try:
-        #os.remove(filepath)
+        
         print("test")
     except Exception as exp:
         logging.info("Faile to delete temporary file")
