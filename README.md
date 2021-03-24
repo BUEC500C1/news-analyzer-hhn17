@@ -5,6 +5,11 @@ Project 2 Final phase:
 
 Final product:
 The aplication is currently hosted on a AWS virtual machine, accessible through the link: http://3.135.222.23/.
+To access, create your own author name. Please write down you author ID as this is unchangeable and your only way to login.
+Or use the provided account:
+Name: Test
+ID: e0b6ca1c-d98f-4b97-9a4f-5ac42bccbbb3
+
 If there is any problem, please contact the git owner.
 
 The application consists of 5 modules in total: a file uploader, a text ingester, a NLP analysis, a frontend client and a query module. The database used is mongodb. 
