@@ -32,7 +32,7 @@ Allow user to enter a string then search the database for that string. Return al
 
 -Frontend module:
 The user interface. The user can register by entering a unique username. A random author ID will be generated for this author name and the author will have to remember it to login. Currently support the upload, update and search operation. 
-The web design is from an open source web package from Marker. 
+
 
 Issues:
 Currently, some features such as sentiment analysis and deletion are not supported on the UI and can only be access through command line. Github workflow test is also not supported. 
