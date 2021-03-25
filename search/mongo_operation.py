@@ -5,9 +5,7 @@ import logging
 from bson.objectid import ObjectId
 
 def get_db_conn():
-    """
-    Fetch the mongodb connection 
-    """
+    
     try:
         myclient = pymongo.MongoClient(config.monog_address)
     except Exception as exp:
@@ -17,9 +15,7 @@ def get_db_conn():
     return mydb
 
 def search(data, client_db):
-    """
-    search function for mongodb client
-    """
+    
     mycol = client_db["authors"]
     mydoc = mycol.find(data)
     count = 0
@@ -29,9 +25,7 @@ def search(data, client_db):
 
 
 def full_text_search(data, client_db):
-    """
-    search function for mongodb client
-    """
+    
     mycol = client_db["textmaintainer"]
     text = data['keyword']
     res = mycol.find({"$text": {"$search": text}})
@@ -51,9 +45,7 @@ def full_text_search(data, client_db):
 
    
 def search_on_id(data, client_db):
-    """
-    Do search base on fileid
-    """
+    
     mycol = client_db["textmaintainer"]
     query = {"FILE_ID":data['FILE_ID']}
     
@@ -64,18 +56,13 @@ def search_on_id(data, client_db):
     return content
 
 def insert_record(data, client_db):
-    """
-    inset record in mongodb database 
-    """
+    
     mycol = client_db["textmaintainer"]
     x = mycol.insert_one(data)
     return x
 
 def update_record(data, client_db):
-    """
-    update the record with doc_id and
     
-    """
     mycol = client_db["textmaintainer"]
     #count = search(data, client_db)
     #if count == 1:
@@ -86,9 +73,7 @@ def update_record(data, client_db):
     return result
 
 def  delete_record(data, mg_client):
-    """
-    delete record from database
-    """
+    
     mycol = mg_client["textmaintainer"]
     myquery = data
     logging.debug(myquery)
