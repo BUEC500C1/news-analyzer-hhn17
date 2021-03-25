@@ -20,7 +20,7 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 app.secret_key = 'XSSDSDDD12323233333'
 app.config['SESSION_TYPE'] = 'filesystem'
-#personal style preference compared to the first answer
+
 
 Session(app)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -41,7 +41,7 @@ def dasht():
         
 @app.route('/login', methods=['GET','POST'])
 def login():
-    #form = LoginForm(request.form)
+    
     if request.method == 'POST':
         author_name = request.form['author_name']
         author_id = request.form['author_id']
@@ -64,7 +64,7 @@ def login():
             app.logger.info('INCORRECT AUTHOR/AUTHOR ID')
        
     return render_template('login.html')
-    #return redirect(url_for('home'))
+    
 
 @app.route('/logout')
 def logout():
@@ -104,11 +104,11 @@ def upload_file():
                 'file': file.read()
             }
                 
-                # for pdf file
+                
             if filename.split('.')[-1] == "pdf":
                 out = requests.post(textingester, files=files)
             else:
-                # for text file
+                
                 out = requests.post(fileupload+'/uploadFile', files=files)
                 print(out.json())
             
@@ -127,13 +127,12 @@ def update_file():
     if request.method == 'POST':
         file_id = request.form.get("fileid")
 
-        # check if the post request has the file part
+        
         if 'file' not in request.files:
             flash('No file part')
             return redirect(request.url)
         file = request.files['file']
-        # if user does not select file, browser also
-        # submit an empty part without filename
+        
         if file.filename == '':
             flash('No selected file')
             return redirect(request.url)
@@ -171,7 +170,7 @@ def displaydata():
         res = output["file_id"]
         access = output['access_id']
 
-            # value = str, data = list, dl = int, cd = list ---- data=ContentData
+            
         return render_template('search-result.html', value=key, dl=len(res), data=res, acces=access)
 
 @app.route('/display/<string:id>/')
@@ -196,8 +195,7 @@ def regform():
         data = {"author_name": key1}
         header_conf = {'Content-type': 'application/json', 'Accept': 'text/plain'}
         response = requests.post(backend_api+"/signup", data=json.dumps(data), headers=header_conf)
-        #flash("register successfully!", "info")
-        #time.sleep(3)
+        
         rest = response.json()
         return render_template('cred.html', author_name=key1, author_id=rest['author_id'])
 
